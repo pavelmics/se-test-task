@@ -20,10 +20,6 @@ var jsFiles = [
     , 'bower_components/angular-route/angular-route.js'
     , 'bower_components/angular-resource/angular-resource.js'
 
-    // @link https://github.com/glaucocustodio/angular-initial-value
-    , 'bower_components/angular-initial-value/dist/angular-initial-value.js'
-    , 'bower_components/ng-table/dist/ng-table.js'
-
     , 'js/main.js'
     , 'js/app.js'
     , 'js/_all-templates.js' // скомпилированные angular шаблоны

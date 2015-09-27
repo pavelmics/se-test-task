@@ -2,8 +2,6 @@ var app = angular.module('skyeng', [
     'ngRoute'
     , 'ngResource'
     , 'templates'
-    , 'initialValue'
-    , 'ngTable'
 
     // my own modules and services
     , 'controllers'

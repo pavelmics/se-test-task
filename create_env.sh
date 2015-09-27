@@ -13,3 +13,5 @@ mysql -u root -p$1 -Bse "
 composer install --prefer-dist
 
 cd ./frontend/ && npm install && bower install && gulp build && cd ..
+
+php -S 0.0.0.0:3000 web/index.php
