@@ -1,3 +1,13 @@
 .idea/
 vendor/
-web/static/
+
+# automated generated files
+app/staticHashes.php
+
+# static dir
+web/static/*.css
+web/static/*.js
+web/static/**/*.svg
+web/static/**/*.ttf
+web/static/**/*.woff
+web/static/**/*.woff2
