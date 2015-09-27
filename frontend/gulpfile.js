@@ -81,5 +81,5 @@ gulp.task('watch', function() {
 
 // build task
 gulp.task('build', function() {
-    runSequence('ng-template', ['js', 'css'], 'update-build-version');
+    runSequence('ng-template', ['js', 'css', 'copy-fonts'], 'update-build-version');
 });

@@ -1,6 +1,6 @@
 (function(w, $) {
 
-    var factory = function($scope, Utils, Teacher) {
+    var factory = function($scope, $location, Utils, Teacher) {
         $scope.formData = {
             sex: '1'
         };
@@ -13,11 +13,11 @@
                 .create($scope.formData)
                 .$promise
                 .then(function(res) {
-
+                    $location.path('/teachers/' + res.id);
                 }, Utils.formError($form));
         }
     };
 
     angular.module('controllers')
-        .controller('AddTeacherController', ['$scope', 'Utils', 'Teacher', factory]);
+        .controller('AddTeacherController', ['$scope', '$location', 'Utils', 'Teacher', factory]);
 })(window, $);

@@ -7,4 +7,7 @@ mysql -u root -p$1 -Bse "
     USE skyeng;
     SOURCE ./_build/db.sql;
     SOURCE ./_build/enums.sql;
+    SOURCE ./_build/testdb.sql;
 "
+
+cd ./frontend/ && npm install && bower install && gulp build && cd ..
