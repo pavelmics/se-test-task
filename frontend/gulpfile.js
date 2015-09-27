@@ -19,10 +19,9 @@ var jsFiles = [
     , 'bower_components/angular/angular.js'
     , 'bower_components/angular-route/angular-route.js'
     , 'bower_components/angular-resource/angular-resource.js'
-
-    , 'js/main.js'
-    , 'js/app.js'
+    
     , 'js/_all-templates.js' // скомпилированные angular шаблоны
+    , 'js/app.js'
     , 'js/app/**/*.js'
 ];
 
@@ -30,7 +29,7 @@ var jsFiles = [
 gulp.task('js', function() {
     gulp.src(jsFiles)
         .pipe(concat({path: 'main.js'}))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(gulp.dest('../web/static'));
 });
 
@@ -79,5 +78,5 @@ gulp.task('watch', function() {
 
 // build task
 gulp.task('build', function() {
-    runSequence('ng-template', ['js', 'css', 'copy-fonts'], 'update-build-version');
+    runSequence('ng-template', 'css', 'copy-fonts', 'js', 'update-build-version');
 });
