@@ -10,4 +10,6 @@ mysql -u root -p$1 -Bse "
     SOURCE ./_build/testdb.sql;
 "
 
+composer install --prefer-dist
+
 cd ./frontend/ && npm install && bower install && gulp build && cd ..
