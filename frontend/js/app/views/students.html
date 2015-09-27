@@ -1,0 +1,49 @@
+<div ng-controller="StudentsController">
+    <div class="row">
+        <div class="col-md-3">
+            <h1>Students</h1>
+        </div>
+        <div class="col-md-3 h1-button">
+            <a href="/students/add" class="btn btn-success">
+                <i class="fa fa-plus"></i>Add New Student
+            </a>
+        </div>
+
+        <table class="table" ng-init="updateTable()">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Level</th>
+                <th>Birth Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="t in students">
+                <td>{{t.id}}</td>
+                <td>{{t.name}}</td>
+                <td>{{t.email}}</td>
+                <td>{{t.level.name}}</td>
+                <td>{{t.birth_date}}</td>
+            </tr>
+            </tbody>
+
+        </table>
+        <ul class="pagination" >
+            <li ng-show="page >= 3">
+                <a href="#" ng-click="updatePage(1); updateTable()">1</a>
+            </li>
+            <li ng-show="page >= 3">
+                <a href="#">...</a>
+            </li>
+            <li ng-repeat="p in pages" ng-class="{active: p==page}">
+                <a href="#" ng-click="updatePage(p); updateTable()">{{p}}</a>
+            </li>
+            <li ng-show="count > 100">
+                <a href="#">...</a>
+            </li>
+        </ul>
+
+    </div>
+</div>

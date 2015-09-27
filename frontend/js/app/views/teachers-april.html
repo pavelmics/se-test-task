@@ -1,0 +1,31 @@
+<div ng-controller="TeachersAprilController">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Teachers with April-born students</h1>
+        </div>
+    </div>
+    <div ng-init="initList()">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Sex</th>
+                    <th>Phone Number</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="t in teachers">
+                <td>{{t.id}}</td>
+                <td>{{t.name}}</td>
+                <td>
+                    <span ng-show="t.sex == 1">Male</span>
+                    <span ng-show="t.sex == 2">Female</span>
+                </td>
+                <td>{{t.phone}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

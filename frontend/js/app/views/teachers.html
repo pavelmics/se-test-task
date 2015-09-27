@@ -1,0 +1,57 @@
+<div ng-controller="TeachersController">
+    <div class="row">
+        <div class="col-md-3">
+           <h1>Teachers</h1>
+        </div>
+        <div class="col-md-3 h1-button">
+            <a href="/teachers/add" class="btn btn-success">
+                <i class="fa fa-plus"></i>Add New Teacher
+            </a>
+        </div>
+    </div>
+
+
+    <table class="table" ng-init="updateTable()">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Sex</th>
+                <th>Phone Number</th>
+                <th>Students Count</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="t in teachers">
+                <td>{{t.id}}</td>
+                <td>{{t.name}}</td>
+                <td>
+                    <span ng-show="t.sex == 1">Male</span>
+                    <span ng-show="t.sex == 2">Female</span>
+                </td>
+                <td>{{t.phone}}</td>
+                <td>{{t.students_count}}</td>
+                <td>
+                    <a class="btn btn-success" href="/teachers/{{t.id}}">&gt;&gt;</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="pagination" >
+        <li ng-show="page >= 3">
+            <a href="#" ng-click="updatePage(1); updateTable()">1</a>
+        </li>
+        <li ng-show="page >= 3">
+            <a href="#">...</a>
+        </li>
+        <li ng-repeat="p in pages" ng-class="{active: p==page}">
+            <a href="#" ng-click="updatePage(p); updateTable()">{{p}}</a>
+        </li>
+        <li ng-show="count > 100">
+            <a href="#">...</a>
+        </li>
+    </ul>
+
+</div>

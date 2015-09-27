@@ -1,0 +1,27 @@
+{
+    "name": "root/skyeng-test",
+    "description": "Test Task for skyeng.ru",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paul",
+            "email": "pavelmics@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "1.3.*"
+        , "bitolaco/silex-eloquent": "*"
+        , "twig/twig": "*"
+        , "symfony/validator": "*"
+        , "knplabs/console-service-provider": "1.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Models\\": "app/Models/"
+            , "Console\\": "app/Console/"
+        }
+    }
+}

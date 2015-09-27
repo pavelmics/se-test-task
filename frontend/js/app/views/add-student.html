@@ -1,0 +1,67 @@
+<div ng-controller="AddStudentController">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Create New Student</h1>
+        </div>
+        <div class="col-md-3">
+            <a href="/students" class="btn btn-warning h1-button">
+                <i class="fa fa-plus"></i>Cancel
+            </a>
+        </div>
+    </div>
+
+    <form class="form-horizontal" id="new-student-form" ng-init="initForm()">
+
+        <!-- Name -->
+        <div class="form-group">
+            <label for="student-name" class="col-md-2 control-label">Name</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="student-name"
+                       name="name" placeholder="John Smit" ng-model="formData.name">
+                <div class="error-message"></div>
+            </div>
+        </div><!-- end Name -->
+
+        <!-- email -->
+        <div class="form-group">
+            <label for="student-email" class="col-md-2 control-label">Email</label>
+            <div class="col-md-6">
+                <input type="email" class="form-control" name="email" id="student-email"
+                       ng-model="formData.email"
+                       placeholder="john@example.com" />
+                <div class="error-message"></div>
+            </div>
+        </div><!-- End email -->
+
+        <!-- Birth Date -->
+        <div class="form-group">
+            <label for="student-birthdate" class="col-md-2 control-label">Birth Date</label>
+            <div class="col-md-2">
+                <input type="text" class="form-control" id="student-birthdate"
+                       name="birth_date"
+                       ng-model="formData.birth_date"
+                       placeholder="01.01.1970">
+                <div class="error-message"></div>
+            </div>
+        </div><!-- End Birth Date -->
+
+        <!-- Level -->
+        <div class="form-group">
+            <label for="student-level" class="col-md-2 control-label">Language Level</label>
+            <div class="col-md-2">
+                <select class="form-control" id="student-level"
+                        ng-options="l.id as l.name for l in levels"
+                        ng-model="formData.level_id">
+                </select>
+                <div class="error-message"></div>
+            </div>
+        </div><!-- End Level -->
+
+        <div class="col-md-offset-2 col-md-10">
+            <button class="btn btn-success btn-lg" ng-click="createNewStudent()">
+                Create
+            </button>
+        </div>
+    </form>
+
+</div>

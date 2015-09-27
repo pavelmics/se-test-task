@@ -1,0 +1,57 @@
+<div ng-controller="AddTeacherController">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Create New Teacher</h1>
+        </div>
+        <div class="col-md-3">
+            <a href="/teachers" class="btn btn-warning h1-button">
+                <i class="fa fa-plus"></i>Cancel
+            </a>
+        </div>
+    </div>
+
+    <form class="form-horizontal" id="new-teacher-form">
+        <!-- Name -->
+        <div class="form-group">
+            <label for="teacher-name" class="col-md-2 control-label">Name</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="teacher-name"
+                       name="name" placeholder="John Smit" ng-model="formData.name">
+                <div class="error-message"></div>
+            </div>
+        </div><!-- end Name -->
+
+        <!-- Sex -->
+        <div class="form-group">
+            <label class="col-md-2 control-label">Sex</label>
+            <div class="col-md-6">
+                <label class="radio-inline" for="teacher-sex-male">
+                    <input type="radio" name="sex" id="teacher-sex-male"
+                           value="1" ng-model="formData.sex"> Male
+                </label>
+                <label class="radio-inline" for="teacher-sex-female">
+                    <input type="radio" name="sex" id="teacher-sex-female"
+                           value="2" ng-model="formData.sex"> Female
+                </label>
+                <div class="error-message"></div>
+            </div>
+        </div><!-- End Sex -->
+
+        <!-- Phone -->
+        <div class="form-group">
+            <label for="teacher-phone" class="col-md-2 control-label">Phone Number</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="teacher-phone"
+                       name="phone" placeholder="(___) __-__-___" ng-model="formData.phone">
+                <div class="error-message"></div>
+            </div>
+        </div><!-- End Phone -->
+
+        <div class="col-md-offset-2 col-md-10">
+            <button class="btn btn-success btn-lg" ng-click="createNewTeacher()">
+                Create
+            </button>
+        </div>
+    </form>
+
+</div>

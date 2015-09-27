@@ -1,0 +1,113 @@
+<div ng-controller="TeacherDetailsController">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Teacher Details</h1>
+        </div>
+
+        <div class="col-md-3">
+            <a href="/teachers" class="btn btn-warning h1-button">
+                <i class="fa fa-plus"></i>Back to teachers list
+            </a>
+        </div>
+    </div>
+
+    <!-- Teacher Details -->
+    <div ng-init="loadTeacher()" ng-hide="notFound">
+
+        <div class="row">
+            <div class="col-md-2">
+                Name:
+            </div>
+            <div class="col-md-10">
+                {{teacher.name}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                Sex:
+            </div>
+            <div class="col-md-10">
+                <span ng-show="teacher.sex == 1">Male</span>
+                <span ng-show="teacher.sex == 2">Female</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                Cell Phone:
+            </div>
+            <div class="col-md-10">
+                {{teacher.phone}}
+            </div>
+        </div>
+
+    </div><!-- End Teacher Details -->
+    <br/>
+    <hr/>
+    <div>
+        <table class="table" ng-show="teacher.students.length > 0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="s in teacher.students">
+                    <td>{{s.id}}</td>
+                    <td>{{s.name}}</td>
+                    <td>{{s.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-show="teacher.students.length === 0">
+            The teacher does not have any students!
+        </div>
+    </div>
+    <br/>
+    <hr/>
+
+    <!-- bind student -->
+    <div ng-init="initStudentSearch()">
+        <h2>Assign student to the teacher:</h2>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <input id="student-search" type="text" class="form-control" placeholder="Student name"/>
+                </div>
+            </div>
+        </form>
+
+        <div ng-show="student">
+            <h4>Student Details:</h4>
+            <div class="row">
+                <div class="col-md-2">Name:</div>
+                <div class="col-md-10">{{student.name}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Level:</div>
+                <div class="col-md-10">{{student.level.name}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">Email:</div>
+                <div class="col-md-10">{{student.email}}</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-success" ng-click="bindStudentToTeacher(teacher.id, student.id)">
+                        Bind the student to the teacher
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- End bind student -->
+
+    <!-- 404 -->
+    <div ng-show="notFound">
+        <h3>The requested teacher is not exist. Make sure the url is correct.</h3>
+    </div><!-- End 404 -->
+
+</div>
