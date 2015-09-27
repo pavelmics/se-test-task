@@ -29,6 +29,7 @@ abstract class BaseModel extends Model
     }
 
     /**
+     * Returns validation rules for the model
      * @return bool|Assert\Collection
      */
     protected function rules()

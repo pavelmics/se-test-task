@@ -1,12 +1,10 @@
 <?php
-
 require(__DIR__ . '/../vendor/autoload.php');
 require(__DIR__ . '/staticHashes.php');
 
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 use Knp\Provider\ConsoleServiceProvider;
 
 $app = new Application();
@@ -56,8 +54,9 @@ $app->register(new ConsoleServiceProvider(), [
     'console.project_directory' => __DIR__.'/..'
 ]);
 
-// DI getter
+
 /**
+ * DI getter
  * @return \Silex\Application
  */
 function getDI()
@@ -66,9 +65,7 @@ function getDI()
     return $app;
 }
 
-
-
-// controllers
+// rest
 $restFactory = require('rest.php');
 $restFactory($app);
 
@@ -80,6 +77,7 @@ $app
     ->value('url', 'app')
     ->assert('url', '(app|teachers(\/add|\/\d+|\/april)?|students(\/add)?|^additional.+)');
 
+// fallback action
 $app->error(function (\Exception $e, $code) use($app) {
     if ($e instanceof ModelNotFoundException) {
         return $app->json(['error' => 'not found'], 404);

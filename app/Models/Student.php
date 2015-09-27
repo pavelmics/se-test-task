@@ -3,7 +3,6 @@
 namespace Models;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Yaml\Tests\A;
 
 class Student extends BaseModel
 {

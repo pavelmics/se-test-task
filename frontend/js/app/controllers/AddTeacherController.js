@@ -5,6 +5,9 @@
             sex: '1'
         };
 
+        /**
+         * Creates new teacher using form
+         */
         $scope.createNewTeacher = function() {
             var $form = $('#new-teacher-form');
             Utils.clearForm($form);

@@ -18,7 +18,7 @@ return function(Silex\Application &$app) {
 
 
     /**
-     *
+     * Generate model to hash with submodels
      * @param BaseModel $m
      * @param array $with
      * @return array
@@ -54,6 +54,7 @@ return function(Silex\Application &$app) {
         return $result;
     };
 
+    // rest route namespace
     $rest = $app['controllers_factory'];
 
     /**
@@ -198,6 +199,9 @@ return function(Silex\Application &$app) {
         }
     });
 
+    /**
+     * List of language levels
+     */
     $rest->get('/language-levels', function() use($app) {
         $levels = Enum::get('language_levels.*');
 

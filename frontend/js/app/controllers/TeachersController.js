@@ -6,6 +6,9 @@
         $scope.page = 1;
         $scope.count = 0;
 
+        /**
+         * Manages the table of teachers
+         */
         $scope.updateTable = function() {
             $scope.teachers = Teacher.query(_getLimitOffset());
 
@@ -32,6 +35,10 @@
                 });
         };
 
+        /**
+         * updates page
+         * @param page
+         */
         $scope.updatePage = function(page) {
             $scope.page = page;
         };

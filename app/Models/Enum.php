@@ -1,14 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pavel
- * Date: 26.09.15
- * Time: 6:23
- */
 
 namespace Models;
 
 use Illuminate\Database\Eloquent\Collection;
+
+
 class Enum extends BaseModel
 {
     protected $table = 'enum';

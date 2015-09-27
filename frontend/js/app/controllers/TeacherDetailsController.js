@@ -6,6 +6,9 @@
         $scope.teacher = {};
         $scope.student = false;
 
+        /**
+         * Load current teacher
+         */
         $scope.loadTeacher = function() {
             Teacher
                 .get({id: teacherId})
@@ -19,6 +22,9 @@
                 });
         };
 
+        /**
+         * Initializes students search
+         */
         $scope.initStudentSearch = function() {
             $('#student-search').autocomplete({
                 serviceUrl: '/rest/students/search'
@@ -47,6 +53,11 @@
             });
         };
 
+        /**
+         * Binds student to current teacher
+         * @param teacherId
+         * @param studentId
+         */
         $scope.bindStudentToTeacher = function(teacherId, studentId) {
             StudentTeacher.create({
                 student_id: studentId

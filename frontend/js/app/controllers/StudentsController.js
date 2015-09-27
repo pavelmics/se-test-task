@@ -6,7 +6,12 @@
         $scope.page = 1;
         $scope.count = 0;
 
+
+        /**
+         * Manages table of students
+         */
         $scope.updateTable = function() {
+            // gets students
             $scope.students = Student.query(_getLimitOffset());
 
             // render pagination
@@ -32,6 +37,10 @@
                 });
         };
 
+        /**
+         * Update current page
+         * @param page
+         */
         $scope.updatePage = function(page) {
             $scope.page = page;
         };

@@ -10,6 +10,9 @@ class Teacher extends BaseModel
 {
     protected $fillable = ['name', 'sex', 'phone'];
 
+    /**
+     * @inheritdoc
+     */
     protected function rules() {
         return new Assert\Collection([
             'name' => new Assert\NotBlank(),
@@ -21,9 +24,12 @@ class Teacher extends BaseModel
         ]);
     }
 
+    /**
+     * Many To Many across teacher_student table
+     */
     public function students()
     {
-        return $this->belongsToMany('Models\\Student', 'teacher_student'); // todo: rename table
+        return $this->belongsToMany('Models\\Student', 'teacher_student');
     }
 
     /**

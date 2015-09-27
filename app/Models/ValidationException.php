@@ -2,11 +2,23 @@
 
 namespace Models;
 
-
+/**
+ * Class ValidationException
+ * Thrown when model is not valid
+ *
+ * @package Models
+ */
 class ValidationException extends \Exception
 {
-    protected $_errors;
+    protected $_errors = [];
 
+    /**
+     * @constructor
+     * @param string $errors - validation errors
+     * @param string $message
+     * @param int $code
+     * @param \Exception $previous
+     */
     public function __construct($errors
         , $message = "model validation failed"
         , $code = 0

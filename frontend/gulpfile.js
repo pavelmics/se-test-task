@@ -55,12 +55,14 @@ gulp.task('ng-template', function () {
         .pipe(gulp.dest('js/'));
 });
 
+
+// copies fonts
 gulp.task('copy-fonts', function() {
     gulp.src('./bower_components/components-font-awesome/fonts/**/*.{ttf,woff,eof,svg,woff2}')
         .pipe(gulp.dest('../web/static/fonts'));
 });
 
-// Обновляет время сборги для файлов
+// Обновляет время сборки для файлов
 gulp.task('update-build-version', function() {
     var versionHash = crypto.randomBytes(10).toString('hex').substr(0, 10);
     gulp.src('./staticHashes.php')
